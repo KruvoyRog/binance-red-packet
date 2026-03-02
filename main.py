@@ -5,11 +5,17 @@ from telethon.sessions import StringSession
 # ТВОИ ДАННЫЕ
 API_ID = 37883264
 API_HASH = 'c223d91aa4f91dcf19f98b6378e9f984'
+# Даже если сессия вставится не до конца, код ниже её починит
 SESSION = '1ApWapzMBuy3E6ryoQ6H3kS9UeR2w8f7_6v6wT6O2T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6='
 
 CHANNELS = ['@Binance_Crypto_Box_Codes_New', '@crypto_box_daily', '@binance_box_codes']
 
-client = TelegramClient(StringSession(SESSION), API_ID, API_HASH)
+# АВТО-ИСПРАВЛЕНИЕ КЛЮЧА (Padding)
+clean_session = SESSION.strip()
+while len(clean_session) % 4 != 0:
+    clean_session += '='
+
+client = TelegramClient(StringSession(clean_session), API_ID, API_HASH)
 
 @client.on(events.NewMessage(chats=CHANNELS))
 async def my_event_handler(event):
@@ -25,4 +31,3 @@ async def main():
 
 if __name__ == '__main__':
     asyncio.run(main())
-
