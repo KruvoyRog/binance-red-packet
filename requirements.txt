@@ -1,2 +1,3 @@
 telethon
 playwright
+binance-connector
