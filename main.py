@@ -7,15 +7,11 @@ API_HASH = 'c223d91aa4f91dcf19f98b6378e9f984'
 SESSION = '1ApWapzMBuy3E6ryoQ6H3kS9UeR2w8f7_6v6wT6O2T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6T6='
 BINANCE_API_KEY = 'mEKN6ScC8u4b315F5QGNKLGqeJ2snSYvepAo536rMlmOrggeM8JRnmGPNgfEMEYK'
 BINANCE_SECRET_KEY = 'mysKnKgFN5KhRxun5y5AOPEnrQwPy2cB0nvj64zmT7Z950bKW9YukLiCspDrwJg'
-
 CHANNELS = ['@Binance_Crypto_Box_Codes_New', '@crypto_box_daily', '@binance_box_codes']
-
 binance_client = Client(BINANCE_API_KEY, BINANCE_SECRET_KEY)
-
 clean_session = SESSION.strip()
 while len(clean_session) % 4 != 0: clean_session += '='
 client = TelegramClient(StringSession(clean_session), API_ID, API_HASH)
-
 @client.on(events.NewMessage(chats=CHANNELS))
 async def my_event_handler(event):
     text = event.raw_text
