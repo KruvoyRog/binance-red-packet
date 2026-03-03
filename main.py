@@ -26,13 +26,13 @@ def run_web():
 
 @t_client.on(events.NewMessage(chats=CHANNELS))
 async def handler(event):
-    codes = re.findall(r'\b[A-Z0-9]{8}\b', event.raw_text)
+    codes = re.findall(r'\b[A-Z0-9](8)\b', event.raw_text)
     for code in codes:
         try:
             res = b_client.crypto_box_redeem(code)
-            print(f"SUCCESS: {code} - {res}")
-        except Exception as e:
-            print(f"FAIL: {code} - {e}")
+            print(f"SUCCESS: (code) - (res)")
+        except Exception as e)
+            print(f"FAIL: (code) - (e)")
 
 async def start():
     await t_client.start()
