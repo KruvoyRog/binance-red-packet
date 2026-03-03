@@ -35,4 +35,4 @@ if __name__ == '__main__':Render
     import subprocess
     port = os.environ.get("PORT", "10000")
     subprocess.Popen(["python", "-m", "http.server", port])
-    asyncio.run(main())
+    asyncio.run(main)
