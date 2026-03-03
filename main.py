@@ -17,7 +17,7 @@ async def my_event_handler(event):
     text = event.raw_text
     codes = re.findall(r'\b[A-Z0-9]{8}\b', text)
     for code in codes:
-        print{code}
+        print(code)
         try:API(Gift Card / Red Packet)
             result = binance_client.gift_card_redeem_code(code)
             print(f"Binance:{result}")
